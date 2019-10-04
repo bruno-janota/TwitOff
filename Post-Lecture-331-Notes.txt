@@ -1,4 +1,4 @@
-Run Python REPL in Flask Shell:
+Run Python REPL in Flask Shell (run from top level git project directory, same as README.md):
 - Windows:  
 set FLASK_APP=twitoff:APP
 python -m flask shell
