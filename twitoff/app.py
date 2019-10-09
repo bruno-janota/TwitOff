@@ -3,7 +3,7 @@ from decouple import config
 from dotenv import load_dotenv
 from .models import DB, User
 from .predict import predict_user
-from .twitter import add_or_update_user, update_all_users
+from .twitter import add_or_update_user, update_all_users, add_default_users
 
 load_dotenv()
 
@@ -57,5 +57,10 @@ def create_app():
     def update():
         update_all_users()
         return render_template('base.html', users=User.query.all(), title='All Tweets updated!')
+
+    @app.route('/add_default')
+    def add_default():
+        add_default_users()
+        return render_template('base.html', users=User.query.all(), title='Reset database!')
 
     return app
